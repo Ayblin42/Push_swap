@@ -1,33 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   lst_utils.c                                        :+:      :+:    :+:   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ayblin <ayblin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/13 03:36:15 by ayblin            #+#    #+#             */
-/*   Updated: 2022/03/14 10:38:27 by ayblin           ###   ########.fr       */
+/*   Created: 2022/03/14 10:17:50 by ayblin            #+#    #+#             */
+/*   Updated: 2022/03/14 10:18:50 by ayblin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
-
-t_elem	*my_lstnew(int val)
+int	ft_atoi(const char *nptr)
 {
-	t_elem	*new;
+	int	i;
+	int	sign;
+	int	result;
 
-	new = (t_elem *)malloc(sizeof(t_elem));
-	if (!new)
-		return (NULL);
-	new->val = val;
-	return (new);
-}
-
-void	my_lst_print(t_elem *lst)
-{
-	while (lst)
+	i = 0;
+	result = 0;
+	sign = 1;
+	while (nptr[i] == ' ' || (nptr[i] > 8 && nptr[i] < 14))
+		i++;
+	if (nptr[i] == '+' || nptr[i] == '-')
 	{
-		printf("|%d|\n", lst->val);
-		lst = lst->next;
+		if (nptr[i] == '-')
+			sign = -1;
+		i++;
 	}
+	while (nptr[i] >= '0' && nptr[i] <= '9')
+	{
+		result = result * 10 + nptr[i] - '0';
+		i++;
+	}
+	return (result * sign);
 }

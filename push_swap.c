@@ -3,10 +3,20 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ayblin <ayblin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: ayblin <ayblin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/13 03:36:11 by ayblin            #+#    #+#             */
-/*   Updated: 2022/03/13 03:36:12 by ayblin           ###   ########.fr       */
+/*   Updated: 2022/03/14 10:41:15 by ayblin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "push_swap.h"
+
+int	main(int ac, char **av)
+{
+	t_stack	*stack;
+
+	stack = init_stack(++av);
+	stack->a_len = ac - 1;
+	my_lst_print(stack->a);
+}
