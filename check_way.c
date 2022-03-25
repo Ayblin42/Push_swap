@@ -1,45 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   init_stack.c                                       :+:      :+:    :+:   */
+/*   check_way.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rigel <rigel@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/13 03:44:44 by ayblin            #+#    #+#             */
-/*   Updated: 2022/03/22 13:09:57 by rigel            ###   ########.fr       */
+/*   Created: 2022/03/17 16:50:20 by rigel             #+#    #+#             */
+/*   Updated: 2022/03/20 19:07:10 by rigel            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-t_stack	*init_stack(char **val)
+int	check_bottom(t_elem *start, int lvl)
 {
-	t_stack	*stack;
-	t_elem	*elem;
 	t_elem	*tmp;
 	int		i;
 
-	stack = (t_stack *)malloc(sizeof(t_stack));
-	if (!stack)
-		return (NULL);
-	tmp = NULL;
-	i = -1;
-	while (val[++i])
+	tmp = start;
+	i = 0;
+	while (tmp && lvl != (tmp->lvl + 1))
 	{
-		elem = my_lstnew(ft_atoi(val[i]));
-		if (!elem)
-			return (NULL);
-		if (!tmp)
-			stack->a = elem;
-		else
-			tmp->next = elem;
-		elem->prev = tmp;
-		tmp = elem;
+		i++;
+		tmp = tmp->next;
 	}
-	stack ->a_end = elem;
-	stack->a_len = i;
-	stack->b = NULL;
-	set_pos(stack);
-	return (stack);
+	return (i);
 }
 
+int	check_top(t_elem *start, int lvl)
+{
+	t_elem	*tmp;
+	int		i;
+
+	tmp = start;
+	i = 0;
+	while (tmp && lvl != (tmp->lvl + 1))
+	{
+		i++;
+		tmp = tmp->prev;
+	}
+	return (i);
+}

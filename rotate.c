@@ -1,0 +1,37 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   rotate.c                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: rigel <rigel@student.42.fr>                +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/03/17 17:17:21 by rigel             #+#    #+#             */
+/*   Updated: 2022/03/22 18:45:00 by rigel            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "push_swap.h"
+
+void	rotate_ra(t_stack *stack)
+{
+	int	uplvl;
+	int	dlvl;
+
+	uplvl = find_next(stack->a, stack->b->lvl);
+	dlvl = find_prev(stack->a, stack->b->lvl);
+	while (stack->a->lvl != uplvl && stack->a_end->lvl != dlvl)
+		op_ra(stack);
+	op_pa(stack);
+}
+
+void	rotate_rra(t_stack *stack)
+{
+	int	uplvl;
+	int	dlvl;
+
+	uplvl = find_next(stack->a, stack->b->lvl);
+	dlvl = find_prev(stack->a, stack->b->lvl);
+	while (stack->a->lvl != uplvl && stack->a_end->lvl != dlvl)
+		op_rra(stack);
+	op_pa(stack);
+}
