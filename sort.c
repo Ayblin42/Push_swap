@@ -42,36 +42,54 @@ int	mv_calcul(int *tab)
 
 void	sort(t_stack *stack, t_list *lis)
 {
-	t_elem		*lst_b;
 	int			*coord;
+	int			min;
+	t_elem		*lst_b;
+
 	coord = malloc(sizeof(int)* 2);
 	push_lis(stack, lis);
 	coord = mv_tab(stack, stack->b,coord);
-	lst_b = stack->b; 
-	while (lst_b)
+	while (stack->b)
 	{
-		coord = mv_tab(stack,lst_b,coord);
+		lst_b = stack->b;
+		min	= mv_calcul(mv_tab(stack, lst_b, coord));
+		while(lst_b)
+		{
+			printf("calc:%d <min:%d \n",mv_calcul(mv_tab(stack, lst_b, coord)), min);
+			if (mv_calcul(mv_tab(stack, lst_b, coord)) < min)
+			{
+				printf("{%d,%d}\n",coord[0], coord[1]);
+				fflush(stdout);
+				min = mv_calcul(mv_tab(stack, lst_b, coord));
+				coord = mv_tab(stack, lst_b, coord);
+				printf("2{%d,%d}\n",coord[0], coord[1]);
+				fflush(stdout);
+			}
+			lst_b = lst_b->next;
+		}
+		print_stacks(stack);
+		printf("3{%d,%d}\n",coord[0], coord[1]);
+		fflush(stdout);
 		exec_tab(coord[0],coord[1], stack);
-		lst_b = lst_b->next;
 	}
+	free(coord);
 }
 
 void	exec_tab(int mva, int mvb, t_stack *stack)
 {
 	while (mva != 0 || mvb != 0)
 	{
-		printf("\n%d,%d",mva,mvb);
 		if ((mva * mvb) > 0)
 		{
 			if (mva < 0)
 			{
-				 op_rrs(stack);
+				ft_putstr(op_rrr(stack));
 				mva = mva+ 1;
 				mvb += 1;
 			}
 			else
 			{
-				 op_rs(stack);
+				ft_putstr(op_rr(stack));
 				mva -= 1;
 				mvb -= 1;
 			}
@@ -80,28 +98,25 @@ void	exec_tab(int mva, int mvb, t_stack *stack)
 		{
 			if (mva < 0)
 			{
-				 op_rra(stack);
+				ft_putstr(op_rra(stack));
 				mva++;
 			}
 			if (mva > 0)
 			{
-				 op_ra(stack);
+				ft_putstr(op_ra(stack));
 				mva--;
 			}
 			if (mvb < 0)
 			{
-				 op_rrb(stack);
+				ft_putstr(op_rrb(stack));
 				mvb++;
 			}
 			if (mvb > 0)
 			{
-				op_rb(stack);
+				ft_putstr(op_rb(stack));
 				mvb--;
 			}
 		}
 	}
-	printf("\nP%d,%d",mva,mvb);
-	sleep(2);
-	op_pa(stack);
-	print_stacks(stack);
+	ft_putstr(op_pa(stack));
 }

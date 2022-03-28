@@ -10,6 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "push_swap.h"
+
 int	ft_atoi(const char *nptr)
 {
 	int	i;
@@ -54,4 +56,21 @@ int	max(int *tab)
 	if (abs(tab[0]) > abs(tab[1]))
 		return (abs(tab[0]));
 	return (abs(tab[1]));
+}
+
+void	ft_putchar(char c)
+{
+	write(1, &c, 1);
+}
+
+void	ft_putstr(char *str)
+{
+	int i;
+
+	i = 0;
+	while (*(str + i) != '\0')
+	{
+		ft_putchar(*(str + i));
+		i++;
+	}
 }

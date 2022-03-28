@@ -56,10 +56,10 @@ void	push_lis(t_stack *stack, t_list *lis)
 		if (i == 2)
 			break ;
 		while (!is_lis(stack->a->lvl, lis))
-			op_pb(stack);
+			ft_putstr(op_pb(stack));
 		if (k)
-			op_rra(stack);
+			ft_putstr(op_rra(stack));
 		else
-			op_ra(stack);
+			ft_putstr(op_ra(stack));
 	}
 }

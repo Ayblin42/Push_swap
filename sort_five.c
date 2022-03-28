@@ -17,26 +17,26 @@ void    sort_three(t_stack *stack)
 	t_elem *l;
 	l = stack->a;
 	if(l->lvl > l->next->lvl && l->next->lvl < l->next->next->lvl && l->lvl < l->next->next->lvl)
-		op_sa(stack);
+		ft_putstr(op_sa(stack));
 	else if(l->lvl > l->next->lvl && l->next->lvl > l->next->next->lvl && l->lvl > l->next->next->lvl)
 	{
-		op_sa(stack);
-		op_rra(stack);
+		ft_putstr(op_sa(stack));
+		ft_putstr(op_rra(stack));
 	}
 	else if(l->lvl > l->next->lvl && l->next->lvl < l->next->next->lvl && l->lvl > l->next->next->lvl)
-		op_ra(stack);
+		ft_putstr(op_ra(stack));
 	else if(l->lvl < l->next->lvl && l->next->lvl > l->next->next->lvl && l->lvl < l->next->next->lvl)
 	{
-		op_sa(stack);
-		op_ra(stack);
+		ft_putstr(op_sa(stack));
+		ft_putstr(op_ra(stack));
 	}
 	else if(l->lvl < l->next->lvl && l->next->lvl > l->next->next->lvl && l->lvl > l->next->next->lvl)
-		op_rra(stack);
+		ft_putstr(op_rra(stack));
 }
 
 static void	sort_four(t_stack *stack)
 {
-	op_pb(stack);
+	ft_putstr(op_pb(stack));
 	sort_three(stack);
 	if (check_bottom(stack->a, stack->b->lvl) < check_top(stack->a_end, stack->b->lvl))
 		rotate_ra(stack);
@@ -52,8 +52,8 @@ void    sort_five(t_stack *stack)
 		sort_four(stack);
 	else
 	{
-		op_pb(stack);
-		op_pb(stack);
+		ft_putstr(op_pb(stack));
+		ft_putstr(op_pb(stack));
 		sort_three(stack);
 		if(check_bottom(stack->a,stack->b->lvl) < check_top(stack->a_end,stack->b->lvl))
 			rotate_ra(stack);

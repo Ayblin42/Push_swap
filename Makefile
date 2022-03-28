@@ -4,7 +4,10 @@ SRC =	init_stack.c \
 		lst_utils.c \
 		push_swap.c \
 		utils.c \
-		op.c \
+		op_push.c \
+		op_reverse_rotate.c \
+		op_rotate.c \
+		op_swap.c \
 		pre_sort.c \
 		rotate.c \
 		sort_five.c \

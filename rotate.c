@@ -20,8 +20,8 @@ void	rotate_ra(t_stack *stack)
 	uplvl = find_next(stack->a, stack->b->lvl);
 	dlvl = find_prev(stack->a, stack->b->lvl);
 	while (stack->a->lvl != uplvl && stack->a_end->lvl != dlvl)
-		op_ra(stack);
-	op_pa(stack);
+		ft_putstr(op_ra(stack));
+	ft_putstr(op_pa(stack));
 }
 
 void	rotate_rra(t_stack *stack)
@@ -32,6 +32,6 @@ void	rotate_rra(t_stack *stack)
 	uplvl = find_next(stack->a, stack->b->lvl);
 	dlvl = find_prev(stack->a, stack->b->lvl);
 	while (stack->a->lvl != uplvl && stack->a_end->lvl != dlvl)
-		op_rra(stack);
-	op_pa(stack);
+		ft_putstr(op_rra(stack));
+	ft_putstr(op_pa(stack));
 }

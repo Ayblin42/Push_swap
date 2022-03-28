@@ -22,12 +22,12 @@ void	min_first(t_stack	*stack)
 	if (tmp->pos > (stack->a_len / 2))
 	{
 		while (stack->a->lvl != 0)
-			op_rra(stack);
+			ft_putstr(op_rra(stack));
 	}
 	else
 	{
 		while (stack->a->lvl != 0)
-			op_ra(stack);
+			ft_putstr(op_ra(stack));
 	}
 }
 
@@ -78,7 +78,7 @@ int	main(int ac, char **av)
 	lis = find_lis(tab, stack->a_len);
 	free(tab);
 	sort(stack, longest_list(lis));
-	printf("\n");
+	min_first(stack);
 	print_stacks(stack);
 	(void)lis;
 	return (0);

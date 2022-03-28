@@ -12,42 +12,35 @@
 
 #include "push_swap.h"
 
-void	same_sign(int mva, int mvb, t_stack *stack)
+char    *op_sa(t_stack *stack)
 {
-	if (mva < 0)
-	{
-		ft_putstr(op_rrr(stack));
-		mva = mva+ 1;
-		mvb += 1;
-	}
-	else
-	{
-		ft_putstr(op_rr(stack));
-		mva -= 1;
-		mvb -= 1;
-	}
+	int tmp;
+
+	tmp = stack->a->val;
+	stack->a->val = stack->a->next->val;
+	stack->a->next->val = tmp;
+	tmp = stack->a->lvl;
+	stack->a->lvl = stack->a->next->lvl;
+	stack->a->next->lvl = tmp;
+	return ("sa\n");
 }
 
-void	dif_sign(int mva, int mvb, t_stack *stack)
+char    *op_sb(t_stack *stack)
 {
-	if (mva < 0)
-	{
-		ft_putstr(op_rra(stack));
-		mva++;
-	}
-	if (mva > 0)
-	{
-		ft_putstr(op_ra(stack));
-		mva--;
-	}
-	if (mvb < 0)
-	{
-		ft_putstr(op_rrb(stack));
-		mvb++;
-	}
-	if (mvb > 0)
-	{
-		ft_putstr(op_rb(stack));
-		mvb--;
-	}
+	int tmp;
+
+	tmp = stack->b->val;
+	stack->b->val = stack->b->next->val;
+	stack->b->next->val = tmp;
+	tmp = stack->b->lvl;
+	stack->b->lvl = stack->b->next->lvl;
+	stack->b->next->lvl = tmp;
+	return ("sb\n");
+}
+
+char    *op_ss(t_stack *stack)
+{
+	op_sa(stack);
+	op_sb(stack);
+	return ("ss\n");
 }

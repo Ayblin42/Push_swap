@@ -58,7 +58,7 @@ typedef struct s_uplist
 }			t_uplist;
 
 int			ft_atoi(const char *nptr);
-int			abs(int nb);
+void		ft_putstr(char *str);
 int			*tab_create(char **argv, int len);
 void		sort_int_tab(int *tab, unsigned int size);
 void		pre_sort(int *tab, t_stack *stack);
@@ -72,17 +72,17 @@ void		print_mv_tab(t_stack *stack, int *coord);
 /*       OPERATION     */
 t_stack		*init_stack(char **val);
 void		min_first(t_stack	*stack);
-void		op_sa(t_stack *stack);
-void		op_sb(t_stack *stack);
-void		op_ss(t_stack *stack);
-void		op_ra(t_stack *stack);
-void		op_rb(t_stack *stack);
-void		op_rs(t_stack *stack);
-void		op_rra(t_stack *stack);
-void		op_rrb(t_stack *stack);
-void		op_rrs(t_stack *stack);
-void		op_pa(t_stack *stack);
-void		op_pb(t_stack *stack);
+char		*op_sa(t_stack *stack);
+char		*op_sb(t_stack *stack);
+char		*op_ss(t_stack *stack);
+char		*op_ra(t_stack *stack);
+char		*op_rb(t_stack *stack);
+char		*op_rr(t_stack *stack);
+char		*op_rra(t_stack *stack);
+char		*op_rrb(t_stack *stack);
+char		*op_rrr(t_stack *stack);
+char		*op_pa(t_stack *stack);
+char		*op_pb(t_stack *stack);
 void		set_pos(t_stack *stack);
 void		rotate_ra(t_stack *stack);
 void		rotate_rra(t_stack *stack);
