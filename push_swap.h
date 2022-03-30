@@ -57,6 +57,7 @@ typedef struct s_uplist
 	struct s_uplist	*next;
 }			t_uplist;
 
+void		push_swap(t_stack *stack);
 long long	ft_atoi(const char *nptr);
 char		**free_tab(char **tab);
 char		**ft_split(char const *s, char c);
@@ -131,6 +132,9 @@ t_uplist	*ft_uplstnew(t_list *lst);
 t_elem		*my_lstnew(int val);
 
 void		free_list(t_list **lst);
+void		free_uplst_node(t_uplist **ulst);
 void		free_uplst(t_uplist **ulst);
+void		free_elem_list(t_elem **lst);
+void		free_stack(t_stack *stack);
 
 #endif

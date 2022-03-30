@@ -22,6 +22,7 @@ t_elem	*my_lstnew(int val)
 	new->val = val;
 	return (new);
 }
+
 t_elem	*my_lstnew2(int val, int lvl)
 {
 	t_elem	*new;

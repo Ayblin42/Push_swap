@@ -46,7 +46,7 @@ static void	discard(t_uplist *ulst, int size)
 		{
 			utmpbis = utmp->next;
 			utmp->next = utmp->next->next;
-			free_uplst(&utmpbis);
+			free_uplst_node(&utmpbis);
 			break ;
 		}
 		utmp = utmp->next;

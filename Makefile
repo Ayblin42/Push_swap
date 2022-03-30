@@ -15,17 +15,16 @@ SRC =	init_stack.c \
 		sort.c \
 		find.c \
 		push_lis.c \
-		lst_utils/my_lstlast.c \
 		find_lis/duplicate.c \
 		find_lis/find_lis.c \
 		find_lis/clone_sup.c \
 		find_lis/sup_ends.c \
 		find_lis/between_ends.c \
-		find_lis/free.c \
+		free.c \
 		exec.c \
 		error_check.c \
 		$(addprefix lst_utils/, \
-		ft_lstadd_back.c   ft_lstnew.c   ft_uplstlast.c \
+		ft_lstadd_back.c   ft_lstnew.c   ft_uplstlast.c my_lstlast.c \
 		ft_lstadd_front.c  ft_lstlast.c  ft_lstsize.c   ft_uplstnew.c \
 		ft_uplstadd_back.c)
 
@@ -34,7 +33,7 @@ OBJ = $(SRC:.c=.o)
 
 CC = cc
 
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror -g
 
 .c.o:
 	${CC} ${CFLAGS} -c $< -o ${<:.c=.o}

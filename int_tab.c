@@ -20,7 +20,7 @@ void    pre_sort(int *tab, t_stack *stack)
 	i = -1;
 	while(++i < stack->a_len)
 	{
-		begin = stack ->a;
+		begin = stack->a;
 		while(begin)
 		{
 			if (begin->val == tab[i])
@@ -28,6 +28,7 @@ void    pre_sort(int *tab, t_stack *stack)
 			begin = begin->next;
 		}
 	}
+	free(tab);
 }
 
 int			*tab_create(char **argv, int len)
