@@ -12,20 +12,6 @@
 
 #include "push_swap.h"
 
-int	get_min_pos(t_elem *stack_a)
-{
-	t_elem	*lst;
-
-	lst = stack_a;
-	while (lst)
-	{
-		if (lst->lvl == 0)
-			return (lst->pos);
-		lst = lst->next;
-	}
-	return (-1);
-}
-
 int	is_lis(int lvl, t_list *lis)
 {
 	t_list	*lst;
@@ -42,24 +28,28 @@ int	is_lis(int lvl, t_list *lis)
 
 void	push_lis(t_stack *stack, t_list *lis)
 {
+	int		lvl;
 	int		i;
-	int		k;
-
+	t_elem	*lst;
+	
 	i = 0;
-	k = 0;
-	if (get_min_pos(stack->a) > (stack->a_len / 2))
-		k = 1;
-	while (i != 2)
+	lst = stack->a;
+	while(lst)
 	{
-		if (stack->a->lvl == 0)
-			i++;
-		if (i == 2)
-			break ;
-		while (!is_lis(stack->a->lvl, lis))
-			ft_putstr(op_pb(stack));
-		if (k)
-			ft_putstr(op_rra(stack));
-		else
-			ft_putstr(op_ra(stack));
+		if(is_lis(lst->lvl,lis))
+		{
+			lvl = lst->lvl;
+			break;
+		}
+		lst = lst->next;
 	}
+	while(i != 2)
+	{
+		if (stack->a->lvl == lvl)
+			i++;
+		while(!is_lis(stack->a->lvl, lis))
+			ft_putstr(op_pb(stack));
+		ft_putstr(op_ra(stack));
+	}
+
 }
