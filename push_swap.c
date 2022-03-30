@@ -31,55 +31,37 @@ void	min_first(t_stack	*stack)
 	}
 }
 
-int	*tab_create2(t_elem *stack_a, int len)
-{
-	t_elem	*tmp;
-	int		*ret;
-	int		i;
-
-	ret = malloc(sizeof(int) * len);
-	if (!ret)
-		return (0);
-	tmp = stack_a;
-	i = 0;
-	while (tmp->lvl != 0)
-		tmp = tmp->next;
-	while (tmp)
-	{
-		ret[i] = tmp->lvl;
-		i++;
-		tmp = tmp->next;
-	}
-	tmp = stack_a;
-	while (tmp->lvl != 0)
-	{
-		ret[i] = tmp->lvl;
-		i++;
-		tmp = tmp->next;
-	}
-	return (ret);
-}
-
 int	main(int ac, char **av)
 {
 	t_stack		*stack;
 	int			*tab;
 	t_uplist	*lis;
+	char		**arg;
 
-	(void)ac;
-	stack = init_stack(++av);
-	tab = tab_create(av, stack->a_len);
+	if (ac == 1)
+		return (-1);
+	if (ac == 2)
+		arg = ft_split(av[1], ' ');
+	else 
+		arg = ++av;
+	if(!error_check(arg))
+	 	return (-1);
+	stack = init_stack(arg);
+	// if (ac == 2)
+	// 	free_tab(arg);
+	tab = tab_create(arg, stack->a_len);
 	sort_int_tab(tab, stack->a_len - 1);
 	pre_sort(tab, stack);
 	free(tab);
-	if (stack->a_len >= 3 && stack->a_len <= 5)
+	if (stack->a_len >= 2 && stack->a_len <= 5)
 		sort_five(stack);
-	tab = tab_create2(stack->a, stack->a_len);
-	lis = find_lis(tab, stack->a_len);
-	free(tab);
-	sort(stack, longest_list(lis));
+	else
+	{	
+		tab = listab_create(stack->a, stack->a_len);
+		lis = find_lis(tab, stack->a_len);
+		free(tab);
+		sort(stack, longest_list(lis));
+	}
 	min_first(stack);
-	// print_stacks(stack);
-	(void)lis;
 	return (0);
 }

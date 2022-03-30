@@ -66,3 +66,32 @@ void	sort_int_tab(int *tab, unsigned int size)
 		}
 	}
 }
+
+int	*listab_create(t_elem *stack_a, int len)
+{
+	t_elem	*tmp;
+	int		*ret;
+	int		i;
+
+	ret = malloc(sizeof(int) * len);
+	if (!ret)
+		return (0);
+	tmp = stack_a;
+	i = 0;
+	while (tmp->lvl != 0)
+		tmp = tmp->next;
+	while (tmp)
+	{
+		ret[i] = tmp->lvl;
+		i++;
+		tmp = tmp->next;
+	}
+	tmp = stack_a;
+	while (tmp->lvl != 0)
+	{
+		ret[i] = tmp->lvl;
+		i++;
+		tmp = tmp->next;
+	}
+	return (ret);
+}

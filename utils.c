@@ -12,11 +12,11 @@
 
 #include "push_swap.h"
 
-int	ft_atoi(const char *nptr)
+long long	ft_atoi(const char *nptr)
 {
-	int	i;
-	int	sign;
-	int	result;
+	int			i;
+	int			sign;
+	long long	result;
 
 	i = 0;
 	result = 0;

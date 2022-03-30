@@ -57,11 +57,15 @@ typedef struct s_uplist
 	struct s_uplist	*next;
 }			t_uplist;
 
-int			ft_atoi(const char *nptr);
+long long	ft_atoi(const char *nptr);
+char		**free_tab(char **tab);
+char		**ft_split(char const *s, char c);
 void		ft_putstr(char *str);
 int			*tab_create(char **argv, int len);
 void		sort_int_tab(int *tab, unsigned int size);
 void		pre_sort(int *tab, t_stack *stack);
+int			ft_strlen(const char *s);
+int			error_check(char **av);
 
 /*       PRINT       */
 void		my_lst_print(t_elem *lst);
@@ -90,8 +94,6 @@ int			find_prev(t_elem *lst, int lvl);
 int			find_next(t_elem *lst, int lvl);
 void		sort_three(t_stack *stack);
 void		sort_five(t_stack *stack);
-int			check_bottom(t_elem *start, int lvl);
-int			check_top(t_elem *start, int lvl);
 int			get_min_pos(t_elem *stack_a);
 int			is_lis(int lvl, t_list *lis);
 int			find_next_pos(t_elem *lst, int lvl);
@@ -113,7 +115,7 @@ t_list		*longest_list(t_uplist *ulst);
 void		clone_sup(t_uplist *ulst, int nb);
 int			sup_ends(t_uplist *ulst, int num);
 t_list		*duplicate(t_list *lst);
-int			*tab_create2(t_elem *stack, int len);
+int			*listab_create(t_elem *stack, int len);
 void		between_ends(t_uplist *ulst, int lvl);
 /*      LST UTILS     */
 t_list		*ft_lstnew(int content);
