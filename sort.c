@@ -12,7 +12,7 @@
 
 #include "push_swap.h"
 
-int	*mv_tab(t_stack *stack, t_elem *lst_b, int *coord)
+void	mv_tab(t_stack *stack, t_elem *lst_b, int *coord)
 {
 	if (lst_b->pos > (stack->b_len / 2))
 		coord[1] = lst_b->pos - stack->b_len;
@@ -21,15 +21,14 @@ int	*mv_tab(t_stack *stack, t_elem *lst_b, int *coord)
 	if (find_next_pos(stack->a, lst_b->lvl) == -1)
 	{
 		if (find_prev_pos(stack->a, lst_b->lvl) > stack->a_len)
-			coord[0] = (find_prev_pos(stack->a, lst_b->lvl) - stack->a_len) + 1;
+			coord[0] = (find_prev_pos(stack->a, lst_b->lvl) - stack->a_len);
 		else
-			coord[0] = find_prev_pos(stack->a, lst_b->lvl) + 1;
+			coord[0] = find_prev_pos(stack->a, lst_b->lvl);
 	}
 	else if (find_next_pos(stack->a, lst_b->lvl) > (stack->a_len / 2))
 		coord[0] = find_next_pos(stack->a, lst_b->lvl) - stack->a_len;
 	else if (find_next_pos(stack->a, lst_b->lvl) <= (stack->a_len / 2))
 		coord[0] = find_next_pos(stack->a, lst_b->lvl);
-	return (coord);
 }
 
 int	mv_calcul(int *tab)
@@ -42,37 +41,40 @@ int	mv_calcul(int *tab)
 
 void	sort(t_stack *stack, t_list *lis)
 {
-	int			*coord;
+	int			coord[2];
+	int			tmp[2];
 	int			min;
 	t_elem		*lst_b;
 
-	coord = malloc(sizeof(int)* 2);
 	push_lis(stack, lis);
-	coord = mv_tab(stack, stack->b,coord);
 	while (stack->b)
 	{
 		lst_b = stack->b;
-		min	= mv_calcul(mv_tab(stack, lst_b, coord));
+		mv_tab(stack, lst_b, coord);
+		min	= mv_calcul(coord);
 		while(lst_b)
 		{
-			printf("calc:%d <min:%d \n",mv_calcul(mv_tab(stack, lst_b, coord)), min);
-			if (mv_calcul(mv_tab(stack, lst_b, coord)) < min)
+			mv_tab(stack, lst_b, tmp);
+			// printf("calc:%d <min:%d \n", mv_calcul(coord), min);
+			// fflush(stdout);
+			if (mv_calcul(tmp) < min)
 			{
-				printf("{%d,%d}\n",coord[0], coord[1]);
-				fflush(stdout);
-				min = mv_calcul(mv_tab(stack, lst_b, coord));
-				coord = mv_tab(stack, lst_b, coord);
-				printf("2{%d,%d}\n",coord[0], coord[1]);
-				fflush(stdout);
+				// printf("{%d,%d}\n",coord[0], coord[1]);
+				// fflush(stdout);
+				min = mv_calcul(tmp);
+				mv_tab(stack, lst_b, coord);
+				// printf("2{%d,%d}\n",coord[0], coord[1]);
+				// fflush(stdout);
 			}
 			lst_b = lst_b->next;
 		}
-		print_stacks(stack);
-		printf("3{%d,%d}\n",coord[0], coord[1]);
-		fflush(stdout);
+		// print_stacks(stack);
+		// printf("3{%d,%d}\n",coord[0], coord[1]);
+		// fflush(stdout);
 		exec_tab(coord[0],coord[1], stack);
+		// printf("NEXT\n");
+		// fflush(stdout);
 	}
-	free(coord);
 }
 
 void	exec_tab(int mva, int mvb, t_stack *stack)

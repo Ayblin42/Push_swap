@@ -79,7 +79,7 @@ int	main(int ac, char **av)
 	free(tab);
 	sort(stack, longest_list(lis));
 	min_first(stack);
-	print_stacks(stack);
+	// print_stacks(stack);
 	(void)lis;
 	return (0);
 }

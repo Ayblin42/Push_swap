@@ -101,7 +101,7 @@ int			abs(int nb);
 int			min(int *tab);
 int			max(int *tab);
 void		sort(t_stack *stack, t_list *lis);
-int			*mv_tab(t_stack *stack, t_elem *lst_b, int *coord);
+void		mv_tab(t_stack *stack, t_elem *lst_b, int *coord);
 int			mv_calcul(int *tab);
 void		same_sign(int mva, int mvb, t_stack *stack);
 void		dif_sign(int mva, int mvb, t_stack *stack);
