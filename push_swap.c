@@ -38,13 +38,16 @@ int	main(int ac, char **av)
 	char		**arg;
 
 	if (ac == 1)
-		return (-1);
+		return (1);
 	if (ac == 2)
 		arg = ft_split(av[1], ' ');
 	else 
 		arg = av + 1;
-	// if(!error_check(arg))
-	//  	return (-1);
+	if(!error_check(arg))
+	{
+		free_tab(arg);
+	  	return (1);
+	}
 	stack = init_stack(arg);
 	tab = tab_create(arg, stack->a_len);
 	if (ac == 2)

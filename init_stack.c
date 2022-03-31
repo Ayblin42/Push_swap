@@ -37,8 +37,10 @@ t_stack	*init_stack(char **val)
 		tmp = elem;
 	}
 	stack ->a_end = elem;
+	stack->a_end->next = NULL ;
 	stack->a_len = i;
 	stack->b = NULL;
+	stack->b_len = 0;
 	set_pos(stack);
 	return (stack);
 }

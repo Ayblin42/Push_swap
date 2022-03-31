@@ -53,10 +53,10 @@ int	already_sort(char **av)
 {
 	int	i;
 
-	i = 1;
+	i = 0;
 	while (av[i])
 	{
-		if(ft_atoi(av[i]) < ft_atoi(av[i - 1]))
+		if(av[i+1] && ft_atoi(av[i]) > ft_atoi(av[i + 1]))
 			return (0);
 		i++;
 	}
@@ -68,6 +68,9 @@ int	error_check(char **av)
 	int	i;
 
 	i = 0;
+
+	if(already_sort(av))
+		return (0);
 	if (is_duplicate(av) == 0)
 	{
 		ft_putstr("Error\n");
@@ -75,6 +78,8 @@ int	error_check(char **av)
 	}
 	while (av[i])
 	{
+		if (!av[i][0])
+			return (0);
 		if (!is_int(av[i]))
 		{
 			ft_putstr("Error\n");
@@ -82,7 +87,5 @@ int	error_check(char **av)
 		}
 		i++;
 	}
-	if(already_sort(av))
-		return (0);
 	return (1);
 }
