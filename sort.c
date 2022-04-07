@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sort.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: ayblin <ayblin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/22 13:58:55 by rigel             #+#    #+#             */
-/*   Updated: 2022/04/07 19:17:10 by marvin           ###   ########.fr       */
+/*   Updated: 2022/04/07 23:37:44 by ayblin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,7 @@ void	exec_tab(int mva, int mvb, t_stack *stack)
 	b = mvb;
 	while (a != 0 || b != 0)
 	{
-		if ((mva * mvb) > 0)
+		if ((a * b) > 0)
 			same_sign(&a, &b, stack);
 		else
 			diff_sign(&a, &b, stack);

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   error_check.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: ayblin <ayblin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/23 01:11:28 by rigel             #+#    #+#             */
-/*   Updated: 2022/04/07 18:25:31 by marvin           ###   ########.fr       */
+/*   Updated: 2022/04/07 23:52:56 by ayblin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,6 +69,8 @@ int	error_check(char **av)
 	int	i;
 
 	i = 0;
+	if (!av[1])
+		return (0);
 	if (already_sort(av))
 		return (-1);
 	if (is_duplicate(av) == 0)
