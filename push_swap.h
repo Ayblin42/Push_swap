@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rigel <rigel@student.42.fr>                +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/14 09:20:51 by llepiney          #+#    #+#             */
-/*   Updated: 2022/03/23 01:32:02 by rigel            ###   ########.fr       */
+/*   Created: 2022/04/07 18:27:20 by marvin            #+#    #+#             */
+/*   Updated: 2022/04/07 18:28:08 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@
 # include <sys/types.h>
 # include <sys/uio.h>
 # include <stdlib.h>
+# include "gnl/get_next_line.h"
 
 # define TRUE 1
 # define FALSE 0
@@ -65,16 +66,15 @@ void		ft_putstr(char *str);
 int			*tab_create(char **argv, int len);
 void		sort_int_tab(int *tab, unsigned int size);
 void		pre_sort(int *tab, t_stack *stack);
-int			ft_strlen(const char *s);
+int			ft_strncmp(char *s1, char *s2, unsigned int n);
 int			error_check(char **av);
 
-/*       PRINT       */
 void		my_lst_print(t_elem *lst);
 void		my_lis_print(t_list *lst);
 void		print_stacks(t_stack *stack);
 void		print_ulst(t_uplist *ulst);
 void		print_mv_tab(t_stack *stack, int *coord);
-/*       OPERATION     */
+
 t_stack		*init_stack(char **val);
 void		min_first(t_stack	*stack);
 char		*op_sa(t_stack *stack);
@@ -110,7 +110,6 @@ void		same_sign(int mva, int mvb, t_stack *stack);
 void		dif_sign(int mva, int mvb, t_stack *stack);
 void		exec_tab(int mva, int mvb, t_stack *stack);
 
-/*      FIND LIS      */
 t_uplist	*find_lis(int *tab, int size);
 t_list		*longest_list(t_uplist *ulst);
 void		clone_sup(t_uplist *ulst, int nb);
@@ -118,7 +117,7 @@ int			sup_ends(t_uplist *ulst, int num);
 t_list		*duplicate(t_list *lst);
 int			*listab_create(t_elem *stack, int len);
 void		between_ends(t_uplist *ulst, int lvl);
-/*      LST UTILS     */
+
 t_list		*ft_lstnew(int content);
 t_elem		*my_lstnew2(int val, int lvl);
 void		ft_lstadd_front(t_list **alst, t_list *new);

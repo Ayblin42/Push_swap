@@ -1,20 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   exec.c                                             :+:      :+:    :+:   */
+/*   op_swap.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rigel <rigel@student.42.fr>                +#+  +:+       +#+        */
+/*   By: ayblin <ayblin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/23 01:11:28 by rigel             #+#    #+#             */
-/*   Updated: 2022/03/23 02:02:21 by rigel            ###   ########.fr       */
+/*   Updated: 2022/04/07 15:58:22 by ayblin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-char    *op_sa(t_stack *stack)
+char	*op_sa(t_stack *stack)
 {
-	int tmp;
+	int	tmp;
 
 	tmp = stack->a->val;
 	stack->a->val = stack->a->next->val;
@@ -25,9 +25,9 @@ char    *op_sa(t_stack *stack)
 	return ("sa\n");
 }
 
-char    *op_sb(t_stack *stack)
+char	*op_sb(t_stack *stack)
 {
-	int tmp;
+	int	tmp;
 
 	tmp = stack->b->val;
 	stack->b->val = stack->b->next->val;
@@ -38,7 +38,7 @@ char    *op_sb(t_stack *stack)
 	return ("sb\n");
 }
 
-char    *op_ss(t_stack *stack)
+char	*op_ss(t_stack *stack)
 {
 	op_sa(stack);
 	op_sb(stack);

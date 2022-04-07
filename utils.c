@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rigel <rigel@student.42.fr>                +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/22 22:58:32 by rigel             #+#    #+#             */
-/*   Updated: 2022/03/22 23:07:25 by rigel            ###   ########.fr       */
+/*   Updated: 2022/04/07 18:31:32 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,21 +56,4 @@ int	max(int *tab)
 	if (abs(tab[0]) > abs(tab[1]))
 		return (abs(tab[0]));
 	return (abs(tab[1]));
-}
-
-void	ft_putchar(char c)
-{
-	write(1, &c, 1);
-}
-
-void	ft_putstr(char *str)
-{
-	int i;
-
-	i = 0;
-	while (*(str + i) != '\0')
-	{
-		ft_putchar(*(str + i));
-		i++;
-	}
 }

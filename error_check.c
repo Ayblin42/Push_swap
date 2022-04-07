@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   exec.c                                             :+:      :+:    :+:   */
+/*   error_check.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rigel <rigel@student.42.fr>                +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/23 01:11:28 by rigel             #+#    #+#             */
-/*   Updated: 2022/03/23 02:02:21 by rigel            ###   ########.fr       */
+/*   Updated: 2022/04/07 18:25:31 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 static int	is_int(char *n)
 {
 	int	i;
+
 	if (ft_atoi(n) < -2147483648 || ft_atoi(n) > 2147483647)
 		return (0);
 	i = 0;
@@ -56,7 +57,7 @@ int	already_sort(char **av)
 	i = 0;
 	while (av[i])
 	{
-		if(av[i+1] && ft_atoi(av[i]) > ft_atoi(av[i + 1]))
+		if (av[i + 1] && ft_atoi(av[i]) > ft_atoi(av[i + 1]))
 			return (0);
 		i++;
 	}
@@ -68,9 +69,8 @@ int	error_check(char **av)
 	int	i;
 
 	i = 0;
-
-	if(already_sort(av))
-		return (0);
+	if (already_sort(av))
+		return (-1);
 	if (is_duplicate(av) == 0)
 	{
 		ft_putstr("Error\n");

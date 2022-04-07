@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_lis.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rigel <rigel@student.42.fr>                +#+  +:+       +#+        */
+/*   By: ayblin <ayblin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/22 13:03:22 by rigel             #+#    #+#             */
-/*   Updated: 2022/03/22 17:00:36 by rigel            ###   ########.fr       */
+/*   Updated: 2022/04/07 15:58:46 by ayblin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,25 +31,24 @@ void	push_lis(t_stack *stack, t_list *lis)
 	int		lvl;
 	int		i;
 	t_elem	*lst;
-	
+
 	i = 0;
 	lst = stack->a;
-	while(lst)
+	while (lst)
 	{
-		if(is_lis(lst->lvl,lis))
+		if (is_lis(lst->lvl, lis))
 		{
 			lvl = lst->lvl;
-			break;
+			break ;
 		}
 		lst = lst->next;
 	}
-	while(i != 2)
+	while (i != 2)
 	{
 		if (stack->a->lvl == lvl)
 			i++;
-		while(!is_lis(stack->a->lvl, lis))
+		while (!is_lis(stack->a->lvl, lis))
 			ft_putstr(op_pb(stack));
 		ft_putstr(op_ra(stack));
 	}
-
 }

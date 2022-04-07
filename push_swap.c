@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rigel <rigel@student.42.fr>                +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/13 03:36:11 by ayblin            #+#    #+#             */
-/*   Updated: 2022/03/23 01:36:04 by rigel            ###   ########.fr       */
+/*   Updated: 2022/04/07 18:40:09 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,17 +41,19 @@ int	main(int ac, char **av)
 		return (1);
 	if (ac == 2)
 		arg = ft_split(av[1], ' ');
-	else 
+	else
 		arg = av + 1;
-	if(!error_check(arg))
+	if (!error_check(arg))
 	{
-		free_tab(arg);
-	  	return (1);
+		if (ac == 2)
+			free_tab(arg);
+		return (1);
 	}
 	stack = init_stack(arg);
+	set_pos(stack);
 	tab = tab_create(arg, stack->a_len);
 	if (ac == 2)
-		 free_tab(arg);
+		free_tab(arg);
 	sort_int_tab(tab, stack->a_len - 1);
 	pre_sort(tab, stack);
 	push_swap(stack);
@@ -60,7 +62,7 @@ int	main(int ac, char **av)
 
 void	push_swap(t_stack *stack)
 {
-	int	*tab;
+	int			*tab;
 	t_uplist	*lis;
 
 	if (stack->a_len >= 2 && stack->a_len <= 5)

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   exec.c                                             :+:      :+:    :+:   */
+/*   op_push.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rigel <rigel@student.42.fr>                +#+  +:+       +#+        */
+/*   By: ayblin <ayblin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/23 01:11:28 by rigel             #+#    #+#             */
-/*   Updated: 2022/03/23 02:02:21 by rigel            ###   ########.fr       */
+/*   Updated: 2022/04/07 15:47:36 by ayblin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ char	*op_pb(t_stack *stack)
 	return ("pb\n");
 }
 
-void    set_pos(t_stack *stack)
+void	set_pos(t_stack *stack)
 {
 	int		i;
 	t_elem	*tmp;
@@ -79,7 +79,7 @@ void    set_pos(t_stack *stack)
 	}
 	i = 0;
 	tmp = stack->b;
-		while (tmp)
+	while (tmp)
 	{
 		tmp->pos = i;
 		i++;

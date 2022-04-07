@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   exec.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rigel <rigel@student.42.fr>                +#+  +:+       +#+        */
+/*   By: ayblin <ayblin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/23 01:11:28 by rigel             #+#    #+#             */
-/*   Updated: 2022/03/23 02:02:21 by rigel            ###   ########.fr       */
+/*   Updated: 2022/04/07 15:57:54 by ayblin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	same_sign(int mva, int mvb, t_stack *stack)
 	if (mva < 0)
 	{
 		ft_putstr(op_rrr(stack));
-		mva = mva+ 1;
+		mva = mva + 1;
 		mvb += 1;
 	}
 	else

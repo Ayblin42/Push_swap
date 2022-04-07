@@ -1,27 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   pre_sort.c                                         :+:      :+:    :+:   */
+/*   int_tab.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rigel <rigel@student.42.fr>                +#+  +:+       +#+        */
+/*   By: ayblin <ayblin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/16 06:54:20 by rigel             #+#    #+#             */
-/*   Updated: 2022/03/22 22:53:29 by rigel            ###   ########.fr       */
+/*   Updated: 2022/04/07 15:58:08 by ayblin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void    pre_sort(int *tab, t_stack *stack)
+void	pre_sort(int *tab, t_stack *stack)
 {
-	int     i;
-	t_elem *begin;
+	int		i;
+	t_elem	*begin;
 
 	i = -1;
-	while(++i < stack->a_len)
+	while (++i < stack->a_len)
 	{
 		begin = stack->a;
-		while(begin)
+		while (begin)
 		{
 			if (begin->val == tab[i])
 				begin->lvl = i;
@@ -31,10 +31,10 @@ void    pre_sort(int *tab, t_stack *stack)
 	free(tab);
 }
 
-int			*tab_create(char **argv, int len)
+int	*tab_create(char **argv, int len)
 {
-	int *tab;
-	int i;
+	int	*tab;
+	int	i;
 
 	i = 0;
 	tab = malloc(sizeof(int) * len);
