@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/07 18:27:20 by marvin            #+#    #+#             */
-/*   Updated: 2022/04/07 18:28:08 by marvin           ###   ########.fr       */
+/*   Updated: 2022/04/07 19:20:27 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,8 +106,8 @@ int			max(int *tab);
 void		sort(t_stack *stack, t_list *lis);
 void		mv_tab(t_stack *stack, t_elem *lst_b, int *coord);
 int			mv_calcul(int *tab);
-void		same_sign(int mva, int mvb, t_stack *stack);
-void		dif_sign(int mva, int mvb, t_stack *stack);
+void		same_sign(int *mva, int *mvb, t_stack *stack);
+void		diff_sign(int *mva, int *mvb, t_stack *stack);
 void		exec_tab(int mva, int mvb, t_stack *stack);
 
 t_uplist	*find_lis(int *tab, int size);

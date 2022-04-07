@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/22 13:58:55 by rigel             #+#    #+#             */
-/*   Updated: 2022/04/07 18:44:09 by marvin           ###   ########.fr       */
+/*   Updated: 2022/04/07 19:17:10 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,46 +68,17 @@ void	sort(t_stack *stack, t_list *lis)
 
 void	exec_tab(int mva, int mvb, t_stack *stack)
 {
-	while (mva != 0 || mvb != 0)
+	int	a;
+	int	b;
+
+	a = mva;
+	b = mvb;
+	while (a != 0 || b != 0)
 	{
 		if ((mva * mvb) > 0)
-		{
-			if (mva < 0)
-			{
-				ft_putstr(op_rrr(stack));
-				mva = mva + 1;
-				mvb += 1;
-			}
-			else
-			{
-				ft_putstr(op_rr(stack));
-				mva -= 1;
-				mvb -= 1;
-			}
-		}
+			same_sign(&a, &b, stack);
 		else
-		{
-			if (mva < 0)
-			{
-				ft_putstr(op_rra(stack));
-				mva++;
-			}
-			if (mva > 0)
-			{
-				ft_putstr(op_ra(stack));
-				mva--;
-			}
-			if (mvb < 0)
-			{
-				ft_putstr(op_rrb(stack));
-				mvb++;
-			}
-			if (mvb > 0)
-			{
-				ft_putstr(op_rb(stack));
-				mvb--;
-			}
-		}
+			diff_sign(&a, &b, stack);
 	}
 	ft_putstr(op_pa(stack));
 }

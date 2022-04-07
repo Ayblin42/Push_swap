@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/07 03:00:51 by ayblin            #+#    #+#             */
-/*   Updated: 2022/04/07 18:33:46 by marvin           ###   ########.fr       */
+/*   Updated: 2022/04/07 19:17:28 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,13 +62,13 @@ static int	pet(t_stack *stack)
 		if (!str)
 		{
 			if (is_sorted(stack->a) && !stack->b)
-				write(1,"OK\n", 3);
-			else 
-				write(1,"KO\n", 3);
+				write(1, "OK\n", 3);
+			else
+				write(1, "KO\n", 3);
 			free(str);
 			return (0);
-		}no
-		if (!exec_op(stack,str))
+		}
+		if (!exec_op(stack, str))
 		{
 			ft_putstr("Error\n");
 			return (0);
@@ -78,7 +78,7 @@ static int	pet(t_stack *stack)
 	return (1);
 }
 
-int main(int ac, char **av)
+int	main(int ac, char **av)
 {
 	t_stack		*stack;
 	char		**arg;
@@ -87,13 +87,13 @@ int main(int ac, char **av)
 		return (1);
 	if (ac == 2)
 		arg = ft_split(av[1], ' ');
-	else 
+	else
 		arg = av + 1;
-	if(error_check(arg) == 0)
+	if (error_check(arg) == 0)
 	{
 		if (ac == 2)
 			free_tab(arg);
-	  	return (1);
+		return (1);
 	}
 	stack = init_stack(arg);
 	pet(stack);
