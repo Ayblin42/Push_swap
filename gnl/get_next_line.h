@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ayblin <ayblin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/08 17:24:32 by ayblin            #+#    #+#             */
-/*   Updated: 2022/04/07 05:23:13 by ayblin           ###   ########.fr       */
+/*   Updated: 2022/04/07 19:27:04 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 # ifndef BUFFER_SIZE
 #  define BUFFER_SIZE 42
 # endif
+
 char	*get_next_line(int fd);
 int		read_file(int fd, char **s_str, char **buffer, char **line);
 void	get_line(char	**line, char **s_str);
@@ -29,5 +30,4 @@ char	*ft_substr(char *s, unsigned int start, size_t len);
 char	*ft_strdup(char *s);
 void	free_ptr(char *str);
 
- #endif
- 
+#endif
