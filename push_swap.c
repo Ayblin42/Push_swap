@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ayblin <ayblin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: ayblin <ayblin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/13 03:36:11 by ayblin            #+#    #+#             */
-/*   Updated: 2022/04/07 23:52:53 by ayblin           ###   ########.fr       */
+/*   Created: 2022/04/08 17:52:55 by ayblin            #+#    #+#             */
+/*   Updated: 2022/04/08 17:52:57 by ayblin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ int	main(int ac, char **av)
 		arg = ft_split(av[1], ' ');
 	else
 		arg = av + 1;
-	if (!error_check(arg))
+	if (error_check(arg) < 1)
 	{
 		if (ac == 2)
 			free_tab(arg);
