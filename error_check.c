@@ -6,7 +6,7 @@
 /*   By: ayblin <ayblin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/08 17:51:52 by ayblin            #+#    #+#             */
-/*   Updated: 2022/04/08 17:51:53 by ayblin           ###   ########.fr       */
+/*   Updated: 2022/04/08 18:47:47 by ayblin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,8 +71,6 @@ int	error_check(char **av)
 	i = 0;
 	if (!av[1])
 		return (0);
-	if (already_sort(av))
-		return (-1);
 	if (is_duplicate(av) == 0)
 	{
 		ft_putstr("Error\n");
@@ -89,5 +87,7 @@ int	error_check(char **av)
 		}
 		i++;
 	}
+	if (already_sort(av))
+		return (-1);
 	return (1);
 }
